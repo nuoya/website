@@ -1,0 +1,43 @@
+<svg viewBox="0 0 290 75" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap');</style>
+    </defs>
+    <g fill="#5CC6D0">
+        <!-- Rocket nose cone -->
+        <path d="M42,2 C44,2 48,8 48,14 L36,14 C36,8 40,2 42,2 Z"/>
+
+        <!-- Rocket body -->
+        <rect x="36" y="14" width="12" height="30" rx="1"/>
+
+        <!-- Window/porthole -->
+        <circle cx="42" cy="24" r="4" fill="white" opacity="0.85"/>
+        <circle cx="42" cy="24" r="2.5" fill="#5CC6D0" opacity="0.5"/>
+
+        <!-- Left fin -->
+        <path d="M36,36 L26,48 L26,44 L36,34 Z" opacity="0.8"/>
+        <!-- Right fin -->
+        <path d="M48,36 L58,48 L58,44 L48,34 Z" opacity="0.8"/>
+
+        <!-- Engine nozzle -->
+        <path d="M37,44 L34,50 L50,50 L47,44 Z" opacity="0.7"/>
+
+        <!-- Exhaust flames -->
+        <path d="M38,50 L42,62 L46,50" fill="#4BB5C0" opacity="0.6"/>
+        <path d="M39.5,50 L42,58 L44.5,50" fill="#5CC6D0" opacity="0.4"/>
+
+        <!-- Stars -->
+        <circle cx="8" cy="12" r="1.2" opacity="0.5"/>
+        <circle cx="18" cy="30" r="0.8" opacity="0.35"/>
+        <circle cx="72" cy="8" r="1" opacity="0.45"/>
+        <circle cx="65" cy="28" r="0.8" opacity="0.3"/>
+        <circle cx="12" cy="50" r="1" opacity="0.4"/>
+        <circle cx="75" cy="45" r="0.9" opacity="0.35"/>
+        <circle cx="25" cy="8" r="0.7" opacity="0.3"/>
+
+        <!-- Orbit ring -->
+        <ellipse cx="42" cy="30" rx="28" ry="10" fill="none" stroke="#5CC6D0" stroke-width="1" opacity="0.2" transform="rotate(-20 42 30)"/>
+    </g>
+
+    <!-- "nuoya" script text -->
+    <text x="98" y="48" font-family="'Pacifico', cursive" font-size="40" fill="#5CC6D0">nuoya</text>
+</svg>

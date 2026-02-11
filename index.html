@@ -3,37 +3,510 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Nuoya | Build data platform with wings</title>
+    <meta name="description" content="Nuoya is a software development company delivering custom software solutions, data platforms, and cloud architecture for enterprise clients.">
+    <meta name="author" content="Nuoya Ltd">
+    <title>Nuoya | Software Development Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet"> 
-    <link href="css/lightbox.css" rel="stylesheet"> 
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-    <![endif]-->       
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+    <style>
+        /* Hero Section */
+        #hero {
+            background: #1a1a2e;
+            padding: 120px 0 100px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        #hero h1 {
+            color: #fff;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        #hero h2 {
+            color: rgba(255,255,255,0.85);
+            font-size: 22px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        #hero p {
+            color: rgba(255,255,255,0.65);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+        #hero .accent-line {
+            width: 60px;
+            height: 3px;
+            background: #00aeef;
+            margin-bottom: 30px;
+        }
+
+        /* Star field */
+        .star-field {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hero planet illustration */
+        .hero-visual {
+            position: absolute;
+            right: 6%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        .hero-visual svg {
+            width: 380px;
+            height: 380px;
+        }
+
+        /* Animations */
+        @keyframes twinkle1 { 0%,100%{opacity:0.15} 50%{opacity:0.7} }
+        @keyframes twinkle2 { 0%,100%{opacity:0.5} 50%{opacity:0.1} }
+        @keyframes twinkle3 { 0%,100%{opacity:0.2} 50%{opacity:0.9} }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+        }
+        @keyframes pulse-ring {
+            0%,100% { opacity: 0.08; transform: rotate(-20deg) scale(1); }
+            50% { opacity: 0.18; transform: rotate(-20deg) scale(1.03); }
+        }
+
+        .twinkle-1 { animation: twinkle1 3s ease-in-out infinite; }
+        .twinkle-2 { animation: twinkle2 4.5s ease-in-out infinite; }
+        .twinkle-3 { animation: twinkle3 5.5s ease-in-out infinite; }
+
+        /* Orbital section divider */
+        .orbital-divider {
+            position: relative;
+            height: 40px;
+            overflow: hidden;
+        }
+        .orbital-divider svg {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+        #about h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+        #about .accent-line {
+            width: 60px;
+            height: 3px;
+            background: #00aeef;
+            margin-bottom: 30px;
+        }
+        #about p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+        }
+
+        /* Services overrides */
+        #services {
+            padding: 80px 0;
+        }
+        #services .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        #services .section-heading h2 {
+            font-size: 30px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        #services .section-heading .accent-line {
+            width: 60px;
+            height: 3px;
+            background: #00aeef;
+            margin: 0 auto 20px;
+        }
+        .single-service .service-icon {
+            font-size: 48px;
+            color: #00aeef;
+            margin-bottom: 25px;
+        }
+        .single-service h2 {
+            font-size: 22px;
+        }
+        .single-service p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Work Section */
+        #work {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+        #work .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        #work .section-heading h2 {
+            font-size: 30px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #686868;
+        }
+        #work .section-heading .accent-line {
+            width: 60px;
+            height: 3px;
+            background: #00aeef;
+            margin: 0 auto 20px;
+        }
+        .work-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 40px;
+            text-align: center;
+            transition: box-shadow 300ms ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .work-item:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        .work-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .work-item p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .work-item .btn-view {
+            display: inline-block;
+            padding: 10px 30px;
+            border: 1px solid #00aeef;
+            color: #00aeef;
+            font-size: 14px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 300ms ease;
+        }
+        .work-item .btn-view:hover {
+            background: #00aeef;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Clients overrides */
+        #clients {
+            padding: 80px 0;
+        }
+        #clients .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        #clients .section-heading h2 {
+            font-size: 30px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #686868;
+        }
+        #clients .section-heading .accent-line {
+            width: 60px;
+            height: 3px;
+            background: #00aeef;
+            margin: 0 auto 20px;
+        }
+        .clients-logo {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .clients-logo .client-item {
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .clients-logo .client-item img {
+            max-height: 50px;
+            opacity: 0.7;
+            transition: opacity 300ms ease;
+            filter: grayscale(100%);
+        }
+        .clients-logo .client-item img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+        .client-text-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #999;
+            letter-spacing: 1px;
+            transition: color 300ms ease;
+            text-decoration: none;
+        }
+        .client-text-logo:hover {
+            color: #00652e;
+            text-decoration: none;
+        }
+
+        /* Footer overrides */
+        #footer {
+            background: #1a1a2e;
+            background-image: none;
+            padding: 60px 0 20px;
+            color: rgba(255,255,255,0.7);
+        }
+        #footer h2 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        #footer address {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+        }
+        #footer a {
+            color: #00aeef;
+        }
+        #footer a:hover {
+            color: #4fcccd;
+        }
+        #footer .bottom-separator {
+            display: none;
+        }
+        .copyright-text {
+            margin-top: 40px;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Header overrides */
+        #header {
+            padding: 15px 0 0;
+        }
+        .social-icons ul li a {
+            color: #999;
+        }
+        .social-icons ul li a:hover {
+            color: #00aeef;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            line-height: 34px;
+            text-align: center;
+            padding: 0;
+            color: #999;
+            transition: all 300ms ease;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .theme-toggle:hover {
+            color: #00aeef;
+            border-color: #00aeef;
+        }
+        .theme-toggle .fa-sun-o { display: none; }
+        .theme-toggle .fa-moon-o { display: inline; }
+
+        /* ========================
+           Dark mode overrides
+           ======================== */
+        [data-theme="dark"] body {
+            background: #121218;
+            color: #d0d0d0;
+        }
+        [data-theme="dark"] #header {
+            background: #121218;
+        }
+        [data-theme="dark"] #header .navbar {
+            background: #121218;
+        }
+        [data-theme="dark"] .theme-toggle {
+            border-color: #444;
+            color: #ccc;
+        }
+        [data-theme="dark"] .theme-toggle:hover {
+            color: #00aeef;
+            border-color: #00aeef;
+        }
+        [data-theme="dark"] .theme-toggle .fa-sun-o { display: inline; }
+        [data-theme="dark"] .theme-toggle .fa-moon-o { display: none; }
+
+        [data-theme="dark"] #hero {
+            background: #0d0d1a;
+        }
+        [data-theme="dark"] #hero:before {
+            background: linear-gradient(135deg, #0d0d1a 0%, #0f1629 50%, #0a2548 100%);
+        }
+
+        [data-theme="dark"] #about {
+            background: #1a1a22;
+        }
+        [data-theme="dark"] #about h2 {
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] #about p {
+            color: #aaa;
+        }
+
+        [data-theme="dark"] #services {
+            background: #121218;
+        }
+        [data-theme="dark"] #services .section-heading h2 {
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] .single-service h2 {
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] .single-service p {
+            color: #999;
+        }
+
+        [data-theme="dark"] #work {
+            background: #1a1a22;
+        }
+        [data-theme="dark"] #work .section-heading h2 {
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] .work-item {
+            background: #22222e;
+            border-color: #2a2a36;
+        }
+        [data-theme="dark"] .work-item:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        [data-theme="dark"] .work-item h3 {
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] .work-item p {
+            color: #999;
+        }
+
+        [data-theme="dark"] #clients {
+            background: #121218;
+        }
+        [data-theme="dark"] #clients .section-heading h2 {
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] .client-text-logo {
+            color: #bbb;
+        }
+        [data-theme="dark"] .client-text-logo:hover {
+            color: #33b26b;
+        }
+        [data-theme="dark"] .clients-logo .client-item img {
+            filter: grayscale(100%) brightness(1.5);
+            opacity: 0.6;
+        }
+        [data-theme="dark"] .clients-logo .client-item img:hover {
+            filter: grayscale(0%) brightness(1.1);
+            opacity: 1;
+        }
+
+        [data-theme="dark"] #footer {
+            background: #0a0a14;
+        }
+
+        /* Dark mode decorative overrides */
+        [data-theme="dark"] .hero-visual svg .planet-body { opacity: 0.5; }
+        [data-theme="dark"] .orbital-divider svg path { stroke: #00aeef; }
+        [data-theme="dark"] .orbital-divider svg circle { fill: #00aeef; }
+        [data-theme="dark"] #about .section-deco,
+        [data-theme="dark"] #services .section-deco,
+        [data-theme="dark"] #clients .section-deco { opacity: 0.06; }
+
+        /* Section background decorations */
+        .section-deco {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+        #about, #services, #work, #clients {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Responsive - hide hero visual on smaller screens */
+        @media (max-width: 992px) {
+            .hero-visual { display: none; }
+        }
+    </style>
+    <!-- Prevent flash of wrong theme -->
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head><!--/head-->
 
 <body>
-	<header id="header">      
+    <header id="header">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 overflow">
                    <div class="social-icons pull-right">
                         <ul class="nav nav-pills">
                             <li><a href="https://github.com/nuoya"><i class="fa fa-github"></i></a></li>
+                            <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><i class="fa fa-moon-o"></i><i class="fa fa-sun-o"></i></button></li>
                         </ul>
-                    </div> 
+                    </div>
                 </div>
              </div>
         </div>
@@ -46,65 +519,207 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                     <a class="navbar-brand" href="index.html">
-                    	<h1><img src="images/logo.png" alt="logo"></h1>
+                        <h1>
+                            <svg viewBox="0 0 290 75" width="195" height="51" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nuoya">
+                                <title>Nuoya</title>
+                                <g fill="#5CC6D0">
+                                    <!-- Rocket nose cone -->
+                                    <path d="M42,2 C44,2 48,8 48,14 L36,14 C36,8 40,2 42,2 Z"/>
+
+                                    <!-- Rocket body -->
+                                    <rect x="36" y="14" width="12" height="30" rx="1"/>
+
+                                    <!-- Window/porthole -->
+                                    <circle cx="42" cy="24" r="4" fill="white" opacity="0.85"/>
+                                    <circle cx="42" cy="24" r="2.5" fill="#5CC6D0" opacity="0.5"/>
+
+                                    <!-- Left fin -->
+                                    <path d="M36,36 L26,48 L26,44 L36,34 Z" opacity="0.8"/>
+                                    <!-- Right fin -->
+                                    <path d="M48,36 L58,48 L58,44 L48,34 Z" opacity="0.8"/>
+
+                                    <!-- Engine nozzle -->
+                                    <path d="M37,44 L34,50 L50,50 L47,44 Z" opacity="0.7"/>
+
+                                    <!-- Exhaust flames -->
+                                    <path d="M38,50 L42,62 L46,50" fill="#4BB5C0" opacity="0.6"/>
+                                    <path d="M39.5,50 L42,58 L44.5,50" fill="#5CC6D0" opacity="0.4"/>
+
+                                    <!-- Stars -->
+                                    <circle cx="8" cy="12" r="1.2" opacity="0.5"/>
+                                    <circle cx="18" cy="30" r="0.8" opacity="0.35"/>
+                                    <circle cx="72" cy="8" r="1" opacity="0.45"/>
+                                    <circle cx="65" cy="28" r="0.8" opacity="0.3"/>
+                                    <circle cx="12" cy="50" r="1" opacity="0.4"/>
+                                    <circle cx="75" cy="45" r="0.9" opacity="0.35"/>
+                                    <circle cx="25" cy="8" r="0.7" opacity="0.3"/>
+
+                                    <!-- Orbit ring -->
+                                    <ellipse cx="42" cy="30" rx="28" ry="10" fill="none" stroke="#5CC6D0" stroke-width="1" opacity="0.2" transform="rotate(-20 42 30)"/>
+                                </g>
+
+                                <!-- "nuoya" script text -->
+                                <text x="98" y="48" font-family="'Pacifico', cursive" font-size="40" fill="#5CC6D0">nuoya</text>
+                            </svg>
+                        </h1>
                     </a>
-                    
                 </div>
             </div>
         </div>
     </header>
     <!--/#header-->
 
-    <section id="home-slider">
+    <section id="hero">
+        <!-- Star field -->
+        <div class="star-field">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <circle cx="5%" cy="15%" r="1" fill="white" class="twinkle-1"/>
+                <circle cx="12%" cy="68%" r="1.2" fill="white" class="twinkle-2"/>
+                <circle cx="20%" cy="35%" r="0.8" fill="white" class="twinkle-3"/>
+                <circle cx="28%" cy="82%" r="1" fill="white" class="twinkle-1"/>
+                <circle cx="35%" cy="10%" r="0.7" fill="white" class="twinkle-2"/>
+                <circle cx="42%" cy="55%" r="1.1" fill="white" class="twinkle-3"/>
+                <circle cx="50%" cy="25%" r="0.9" fill="white" class="twinkle-1"/>
+                <circle cx="58%" cy="72%" r="1.3" fill="white" class="twinkle-2"/>
+                <circle cx="65%" cy="40%" r="0.8" fill="white" class="twinkle-3"/>
+                <circle cx="72%" cy="88%" r="1" fill="white" class="twinkle-1"/>
+                <circle cx="78%" cy="18%" r="1.1" fill="white" class="twinkle-2"/>
+                <circle cx="85%" cy="60%" r="0.7" fill="white" class="twinkle-3"/>
+                <circle cx="92%" cy="30%" r="1.2" fill="white" class="twinkle-1"/>
+                <circle cx="96%" cy="78%" r="0.9" fill="white" class="twinkle-2"/>
+                <circle cx="8%" cy="45%" r="0.6" fill="white" class="twinkle-3"/>
+                <circle cx="18%" cy="90%" r="0.8" fill="white" class="twinkle-1"/>
+                <circle cx="55%" cy="8%" r="1" fill="white" class="twinkle-2"/>
+                <circle cx="88%" cy="45%" r="0.7" fill="white" class="twinkle-3"/>
+                <circle cx="38%" cy="92%" r="0.9" fill="white" class="twinkle-1"/>
+                <circle cx="75%" cy="5%" r="1.1" fill="white" class="twinkle-2"/>
+            </svg>
+        </div>
+
+        <!-- Planet + orbits illustration -->
+        <div class="hero-visual">
+            <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer orbit ring -->
+                <ellipse cx="190" cy="190" rx="170" ry="55" fill="none" stroke="#00aeef" stroke-width="0.5" opacity="0.1" transform="rotate(-20 190 190)"/>
+                <!-- Middle orbit ring -->
+                <ellipse cx="190" cy="190" rx="130" ry="42" fill="none" stroke="#00aeef" stroke-width="0.7" opacity="0.12" transform="rotate(-20 190 190)" style="animation: pulse-ring 6s ease-in-out infinite;"/>
+                <!-- Inner orbit ring -->
+                <ellipse cx="190" cy="190" rx="90" ry="30" fill="none" stroke="#00aeef" stroke-width="0.8" opacity="0.15" transform="rotate(-20 190 190)"/>
+
+                <!-- Planet -->
+                <circle cx="190" cy="190" r="55" fill="#0f3460" opacity="0.35" class="planet-body"/>
+                <circle cx="190" cy="190" r="55" fill="none" stroke="#00aeef" stroke-width="1" opacity="0.2"/>
+                <!-- Planet surface arcs -->
+                <path d="M160,175 Q190,165 220,178" fill="none" stroke="#00aeef" stroke-width="0.7" opacity="0.2"/>
+                <path d="M155,195 Q185,205 225,192" fill="none" stroke="#00aeef" stroke-width="0.7" opacity="0.15"/>
+                <path d="M165,210 Q190,218 210,208" fill="none" stroke="#00aeef" stroke-width="0.5" opacity="0.12"/>
+
+                <!-- Orbiting satellite (on middle ring) -->
+                <g style="transform-origin: 190px 190px; animation: orbit 20s linear infinite;">
+                    <rect x="-8" y="-2" width="16" height="4" rx="1" fill="#00aeef" opacity="0.5" transform="translate(190,190)"/>
+                    <circle cx="190" cy="190" r="3" fill="#00aeef" opacity="0.7"/>
+                </g>
+
+                <!-- Small moon -->
+                <circle cx="310" cy="120" r="8" fill="#16213e" stroke="#00aeef" stroke-width="0.5" opacity="0.25"/>
+
+                <!-- Scattered stars -->
+                <circle cx="40" cy="50" r="1.5" fill="white" opacity="0.2" class="twinkle-3"/>
+                <circle cx="340" cy="60" r="1" fill="white" opacity="0.15" class="twinkle-1"/>
+                <circle cx="60" cy="300" r="1.2" fill="white" opacity="0.18" class="twinkle-2"/>
+                <circle cx="330" cy="310" r="0.8" fill="white" opacity="0.12" class="twinkle-3"/>
+                <circle cx="80" cy="140" r="1" fill="white" opacity="0.15" class="twinkle-1"/>
+                <circle cx="310" cy="240" r="1.3" fill="white" opacity="0.2" class="twinkle-2"/>
+            </svg>
+        </div>
+
         <div class="container">
             <div class="row">
-                <div class="main-slider">
-                    <div class="slide-text">
-                        <h1>Nuoya</h1>
-                        <h2>Build data platform with wings</h2>
-                    </div>
-                    <img src="images/home/slider/hill.png" class="slider-hill" alt="slider image">
-                    <img src="images/home/slider/house.png" class="slider-house" alt="slider image">
-                    <img src="images/home/slider/sun.png" class="slider-sun" alt="slider image">
-                    <img src="images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
-                    <img src="images/home/slider/birds2.png" class="slider-birds2" alt="slider image">
+                <div class="col-md-8">
+                    <h1>Nuoya</h1>
+                    <div class="accent-line"></div>
+                    <h2>Software Development for the Enterprise</h2>
+                    <p>We design and build custom software solutions, data platforms, and cloud-native applications that help businesses operate at scale.</p>
                 </div>
             </div>
         </div>
-        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
     </section>
-    <!--/#home-slider-->
+    <!--/#hero-->
+
+    <!-- Orbital divider -->
+    <div class="orbital-divider">
+        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,38 Q50,0 100,20 Q150,40 200,2" fill="none" stroke="#00aeef" stroke-width="1" opacity="0.2"/>
+            <circle cx="100" cy="20" r="2.5" fill="#00aeef" opacity="0.3"/>
+        </svg>
+    </div>
+
+    <section id="about">
+        <!-- Subtle orbit decoration -->
+        <svg class="section-deco" style="right:-120px; top:-60px;" width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="150" cy="150" rx="140" ry="50" fill="none" stroke="#00aeef" stroke-width="1.5" transform="rotate(-25 150 150)"/>
+            <ellipse cx="150" cy="150" rx="100" ry="35" fill="none" stroke="#00aeef" stroke-width="1" transform="rotate(-25 150 150)"/>
+            <circle cx="150" cy="150" r="6" fill="#00aeef" opacity="0.3"/>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>About Nuoya</h2>
+                    <div class="accent-line"></div>
+                    <p>Nuoya is a software development company based in London, England. We partner with organisations across financial services, government, and technology to deliver reliable, well-engineered software. From data platforms to full-stack applications, we bring deep technical expertise and a pragmatic approach to every engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#about-->
+
+    <!-- Orbital divider -->
+    <div class="orbital-divider">
+        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 Q50,40 100,20 Q150,0 200,38" fill="none" stroke="#00aeef" stroke-width="1" opacity="0.2"/>
+            <circle cx="100" cy="20" r="2.5" fill="#00aeef" opacity="0.3"/>
+        </svg>
+    </div>
 
     <section id="services">
+        <!-- Subtle orbit decoration -->
+        <svg class="section-deco" style="left:-100px; bottom:-80px;" width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="140" cy="140" rx="130" ry="45" fill="none" stroke="#00aeef" stroke-width="1.5" transform="rotate(15 140 140)"/>
+            <ellipse cx="140" cy="140" rx="90" ry="30" fill="none" stroke="#00aeef" stroke-width="1" transform="rotate(15 140 140)"/>
+            <circle cx="140" cy="140" r="5" fill="#00aeef" opacity="0.3"/>
+        </svg>
         <div class="container">
+            <div class="section-heading">
+                <h2>What We Do</h2>
+                <div class="accent-line"></div>
+            </div>
             <div class="row">
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <img src="images/python.jpg" alt="">
+                        <div class="service-icon">
+                            <i class="fa fa-rocket"></i>
                         </div>
-                        <h2>Python</h2>
-                        <p>15 years experience using Python</p>
+                        <h2>Custom Software</h2>
+                        <p>Full-stack application development using Python, modern frameworks, and best engineering practices</p>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
-                            <img src="images/tensorflow.png" alt="">
+                        <div class="service-icon">
+                            <i class="fa fa-database"></i>
                         </div>
-                        <h2>TensorFlow</h2>
-                        <p>Machine learning for business intelligence</p>
+                        <h2>Data Engineering</h2>
+                        <p>Data platforms, pipelines, and machine learning solutions that turn raw data into business intelligence</p>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
                     <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
-                            <img src="images/ethereum.png" alt="">
+                        <div class="service-icon">
+                            <i class="fa fa-globe"></i>
                         </div>
-                        <h2>Ethereum</h2>
-                        <p>Unstoppable app on Ethereum blockchain</p>
+                        <h2>Cloud Architecture</h2>
+                        <p>Scalable, secure cloud infrastructure design and migration on AWS, GCP, and Azure</p>
                     </div>
                 </div>
             </div>
@@ -112,69 +727,135 @@
     </section>
     <!--/#services-->
 
-    <section id="clients">
+    <!-- Orbital divider -->
+    <div class="orbital-divider">
+        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,38 Q50,0 100,20 Q150,40 200,2" fill="none" stroke="#00aeef" stroke-width="1" opacity="0.2"/>
+            <circle cx="100" cy="20" r="2.5" fill="#00aeef" opacity="0.3"/>
+        </svg>
+    </div>
+
+    <section id="work">
         <div class="container">
+            <div class="section-heading">
+                <h2>Our Work</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="work-item wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <h3>AlgoEntropy</h3>
+                        <p>A quantitative research and algorithmic trading platform combining advanced data engineering with machine learning to deliver systematic trading strategies.</p>
+                        <a href="https://www.algoentropy.com/" class="btn-view" target="_blank" rel="noopener">Visit Project</a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="work-item wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="450ms">
+                        <h3>Stratos</h3>
+                        <p>An interactive feasibility study exploring orbital data centre infrastructure, featuring real-time simulators for orbital dynamics, launch cost modelling, and TCO analysis.</p>
+                        <a href="https://stratos.algoentropy.com/" class="btn-view" target="_blank" rel="noopener">Visit Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-sm-6">
+                    <div class="work-item wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <h3>FPL Alpha</h3>
+                        <p>A data-driven Fantasy Premier League analytics platform using algorithmic optimisation to inform squad selection and transfer strategy.</p>
+                        <a href="https://fpl.algoentropy.com/" class="btn-view" target="_blank" rel="noopener">Visit Project</a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="work-item wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="750ms">
+                        <h3>Chain</h3>
+                        <p>A blockchain analytics and visualisation tool for exploring on-chain data, transaction flows, and network activity.</p>
+                        <a href="https://chain.algoentropy.com/" class="btn-view" target="_blank" rel="noopener">Visit Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#work-->
+
+    <!-- Orbital divider -->
+    <div class="orbital-divider">
+        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 Q50,40 100,20 Q150,0 200,38" fill="none" stroke="#00aeef" stroke-width="1" opacity="0.2"/>
+            <circle cx="100" cy="20" r="2.5" fill="#00aeef" opacity="0.3"/>
+        </svg>
+    </div>
+
+    <section id="clients">
+        <!-- Subtle orbit decoration -->
+        <svg class="section-deco" style="right:-80px; top:50%; transform:translateY(-50%);" width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="125" cy="125" rx="115" ry="40" fill="none" stroke="#00aeef" stroke-width="1.2" transform="rotate(-30 125 125)"/>
+            <circle cx="125" cy="125" r="4" fill="#00aeef" opacity="0.25"/>
+        </svg>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Clients</h2>
+                <div class="accent-line"></div>
+            </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <p><img src="images/home/clients.png" class="img-responsive" alt=""></p>
-                        <h1 class="title">Happy Clients</h1>
-                    </div>
-                    <div class="clients-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="col-xs-3 col-sm-2">
-                            <a href="https://www.just-eat.co.uk/"><img src="images/justeat.png" class="img-responsive" alt=""></a>
+                    <div class="clients-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <div class="client-item">
+                            <a href="https://www.schroders.com/" target="_blank" rel="noopener"><span class="client-text-logo">Schroders</span></a>
                         </div>
-                        <div class="col-xs-3 col-sm-2">
-                            <a href="https://www.digicatapult.org.uk/"><img src="images/digicat.jpg" class="img-responsive" alt=""></a>
+                        <div class="client-item">
+                            <a href="https://www.fidelity.co.uk/" target="_blank" rel="noopener"><img src="images/fil.png" class="img-responsive" alt="Fidelity"></a>
                         </div>
-                         <div class="col-xs-3 col-sm-2">
-                            <a href="https://www.gov.uk/government/organisations/ministry-of-justice"><img src="images/moj.jpg" class="img-responsive" alt=""></a>
+                        <div class="client-item">
+                            <a href="https://www.just-eat.co.uk/" target="_blank" rel="noopener"><img src="images/justeat.png" class="img-responsive" alt="Just Eat"></a>
                         </div>
-                         <div class="col-xs-3 col-sm-2">
-                            <a href="https://www.dryice.ai/"><img src="images/hcl.png" class="img-responsive" alt=""></a>
+                        <div class="client-item">
+                            <a href="https://www.gov.uk/government/organisations/ministry-of-justice" target="_blank" rel="noopener"><img src="images/moj.jpg" class="img-responsive" alt="Ministry of Justice"></a>
                         </div>
-                         <div class="col-xs-3 col-sm-2">
-                            <a href="https://www.fidelity.co.uk/"><img src="images/fil.png" class="img-responsive" alt=""></a>
+                        <div class="client-item">
+                            <a href="https://www.digicatapult.org.uk/" target="_blank" rel="noopener"><img src="images/digicat.jpg" class="img-responsive" alt="Digital Catapult"></a>
                         </div>
-                         <div class="col-xs-3 col-sm-2">
-                            <a href="https://skimlinks.com/"><img src="images/skimlinks.png" class="img-responsive" alt=""></a>
+                        <div class="client-item">
+                            <a href="https://www.dryice.ai/" target="_blank" rel="noopener"><img src="images/hcl.png" class="img-responsive" alt="HCL DRYiCE"></a>
+                        </div>
+                        <div class="client-item">
+                            <a href="https://skimlinks.com/" target="_blank" rel="noopener"><img src="images/skimlinks.png" class="img-responsive" alt="Skimlinks"></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-     </section>
+    </section>
     <!--/#clients-->
 
-    <footer id="footer">
-        <div class="container">
+    <footer id="footer" style="position:relative; overflow:hidden;">
+        <!-- Footer star field -->
+        <div class="star-field">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <circle cx="8%" cy="20%" r="0.8" fill="white" class="twinkle-2"/>
+                <circle cx="22%" cy="60%" r="1" fill="white" class="twinkle-3"/>
+                <circle cx="38%" cy="30%" r="0.7" fill="white" class="twinkle-1"/>
+                <circle cx="55%" cy="75%" r="1.1" fill="white" class="twinkle-2"/>
+                <circle cx="68%" cy="15%" r="0.9" fill="white" class="twinkle-3"/>
+                <circle cx="82%" cy="55%" r="0.8" fill="white" class="twinkle-1"/>
+                <circle cx="92%" cy="35%" r="1" fill="white" class="twinkle-2"/>
+                <circle cx="15%" cy="85%" r="0.7" fill="white" class="twinkle-3"/>
+                <circle cx="75%" cy="80%" r="0.9" fill="white" class="twinkle-1"/>
+                <circle cx="48%" cy="10%" r="1.1" fill="white" class="twinkle-2"/>
+            </svg>
+        </div>
+        <div class="container" style="position:relative; z-index:1;">
             <div class="row">
-                <div class="col-sm-12 text-center bottom-separator">
-                    <img src="images/home/under.png" class="img-responsive inline" alt="">
-                </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-sm-12 text-center">
                     <div class="contact-info bottom">
-                        <h2>Contacts</h2>
+                        <h2>Contact</h2>
                         <address>
-                        E-mail: <a href="mailto:cliff@nuoya.co.uk">cliff@nuoya.co.uk</a> <br> 
+                        E-mail: <a href="mailto:cliff@nuoya.co.uk">cliff@nuoya.co.uk</a> &nbsp;|&nbsp; London, England
                         </address>
-                        <h2>Address</h2>
-                        <address>
-                        First Floor, <br>
-                        Telecom House, <br>
-                        125-135 Preston Road, <br>
-                        Brighton, England, <br>
-                        BN1 6AF
-                        </address>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="contact-form bottom">
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p>&copy; Nuoya Ltd 2021. All Rights Reserved.</p>
+                        <p>&copy; Nuoya Ltd 2025. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
@@ -184,8 +865,20 @@
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>   
+    <script type="text/javascript" src="js/main.js"></script>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            var html = document.documentElement;
+            var isDark = html.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
